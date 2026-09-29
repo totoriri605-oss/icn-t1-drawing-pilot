@@ -55,6 +55,9 @@
 | EKC-025 | 추출 텍스트는 렌더링/좌표로 교차확인. **UNREFERENCED/UNREACHABLE 블록 텍스트는 active evidence로 쓰지 않음** | L1350 | 적용 | 적용 | Blank TEXT 레이어 값은 렌더링 확인 필요. 미사용 블록 `삭제`·`모듈4`는 active evidence 아님 (HR-EV-01) |
 | EKC-028 | 계산서 page는 설비 대수가 아님. **도면의 text hit 수·중복 라벨·미사용 블록은 설비 수량이 아님** | L1566 | 적용 | 적용 | 모듈 수·기초 수를 도면 객체나 텍스트 개수로 세지 않음. 빈 블록 `FOUNDATION. A` 923개를 기초 수량으로 쓰면 안 됨 |
 
+- [사실] EKC-025, EKC-028 모두 승인 9개에 포함됨: `publication_provenance.human_decision = APPROVE_WITH_GUARDRAILS`, `status = APPROVED`, `additional_evidence_required = []` (`team:data/knowledge/approved-engineering-knowledge-v1.json`).
+- [사실] EKC-028은 `team:docs/phase2-human-review-package-v1.md` L53에 "HUMAN_REVIEW_REQUIRED … AB zone 외 구역은 같은 교차확인 반복 필요"로 남아 있음 (진행상황 공유의 "추가 검증 필요" 항목으로 보임). 승인 자체는 유지되므로 B001에는 guardrail("drawing text hit count ≠ equipment count", 미사용 블록 제외) 범위로만 적용: **B001 모듈 수량은 도면 객체·텍스트 개수가 아니라 Blank 설비 규모표와 수량산출서·BOQ로 확인하고, 미사용 블록 `삭제`의 폴리라인 20,952개를 수량 근거로 세지 않기 위해 적용함.**
+
 ### E-B001-01 모듈 배치 기준
 - T1 조건 (확인한 사실 + 근거 위치):
   - [사실] Blank B001 TEXT 레이어: 모듈 645Wp, 사이즈 2,465(W) × 1,134(H) × 30(D).
